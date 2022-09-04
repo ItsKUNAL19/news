@@ -85,7 +85,7 @@ static propTypes = {
         // })}
         this.setState({
             page : this.state.page+1 ,
-            articles :parsedData.articles,
+            articles :articles,
             loading :false
         })
     }
