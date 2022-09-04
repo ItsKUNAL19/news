@@ -42,11 +42,10 @@ static propTypes = {
 
     handlePreviousClick = async()=>
     {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category} &category=${this.props.category}&apiKey=6d86baefd54d4a23b431f6e532211b4e&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
-        let data = await fetch(url);
-        this.setState({loading:true});
-        let parsedData = await data.json();
-        
+        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category} &category=${this.props.category}&apiKey=6d86baefd54d4a23b431f6e532211b4e&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
+        // let data = await fetch(url);
+        // this.setState({loading:true});
+        // let parsedData = await data.json();
         // console.log(parsedData);
         // this.setState({
         //     page : this.state.page-1 ,
