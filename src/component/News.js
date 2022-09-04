@@ -75,7 +75,7 @@ static propTypes = {
       <h2 className="text-center" style={{margin:'4%'}}>MD NEWS</h2>
         {this.state.loading&&<Spinner/>}
       <div className="row">
-      {!(this.state.loading) &&this.state.articles.map((element)=>{
+      {!(this.state.loading)&& this.state.articles && this.state.articles.map((element)=>{
           return <div className="col-md-4" key={element.url} >
           <NewsItem title={element.title?element.title:""} description ={element.description?element.description:""} imageurl ={element.urlToImage} newsUrl = {element.url} /> 
           </div>  
