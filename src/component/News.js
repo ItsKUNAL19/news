@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes  from 'prop-types';
+import {articles} from '../data.js'
 
 export class News extends Component {
 static defaultProps = {
@@ -32,7 +33,7 @@ static propTypes = {
         let data = await fetch(url);
         this.setState({loading:true});
         let parsedData = await data.json();
-        console.log(parsedData);
+        console.log(parsedData.articles);
         this.setState({articles :parsedData.articles, 
             totalResults : parsedData.totalResults,
             loading :false
@@ -45,10 +46,17 @@ static propTypes = {
         let data = await fetch(url);
         this.setState({loading:true});
         let parsedData = await data.json();
-        console.log(parsedData);
+        
+        // console.log(parsedData);
+        // this.setState({
+        //     page : this.state.page-1 ,
+        //     articles :parsedData.articles,
+        //     loading:false
+        // })
+
         this.setState({
             page : this.state.page-1 ,
-            articles :parsedData.articles,
+            articles :articles,
             loading:false
         })
     }
@@ -67,6 +75,9 @@ static propTypes = {
             articles :parsedData.articles,
             loading :false
         })}
+        this.setState({
+
+        })
     }
 
   render() {
