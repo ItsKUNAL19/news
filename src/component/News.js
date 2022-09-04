@@ -96,7 +96,8 @@ static propTypes = {
       <h2 className="text-center" style={{margin:'4%'}}>MD NEWS</h2>
         {this.state.loading&&<Spinner/>}
       <div className="row">
-      {!(this.state.loading)&& this.state.articles && this.state.articles.map((element)=>{
+      {!(this.state.loading)&& this.state.articles[this.state.page-1] && this.state.articles[this.state.page-1].map((element)=>{
+          console.log(articles[this.state.page-1])
           return <div className="col-md-4" key={element.url} >
           <NewsItem title={element.title?element.title:""} description ={element.description?element.description:""} imageurl ={element.urlToImage} newsUrl = {element.url} /> 
           </div>  
@@ -105,10 +106,9 @@ static propTypes = {
       </div>
       <div className="containerr d-flex justify-content-between my-5">
             <button disabled = {this.state.page<=1} type="button" class="btn btn-dark" onClick = {this.handlePreviousClick}> &larr; previous</button>
-            <button type="button" class="btn btn-dark" onClick = {this.handleNextClick}>next &rarr;</button>
+            <button disabled = {this.state.page>=3} type="button" class="btn btn-dark" onClick = {this.handleNextClick}>next &rarr;</button>
       </div>
       </div>
-      
     )
   }
 }
