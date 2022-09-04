@@ -29,15 +29,23 @@ static propTypes = {
 
     async componentDidMount()
     {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=6d86baefd54d4a23b431f6e532211b4e&page=1&pageSize=${this.props.pageSize}`;
-        let data = await fetch(url);
+        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=6d86baefd54d4a23b431f6e532211b4e&page=1&pageSize=${this.props.pageSize}`;
+        // let data = await fetch(url);
+        // this.setState({loading:true});
+        // let parsedData = await data.json();
+        // console.log(parsedData.articles);
+        // this.setState({articles :parsedData.articles, 
+        //     totalResults : parsedData.totalResults,
+        //     loading :false
+        // })
+
         this.setState({loading:true});
-        let parsedData = await data.json();
-        console.log(parsedData.articles);
-        this.setState({articles :parsedData.articles, 
-            totalResults : parsedData.totalResults,
-            loading :false
+        this.setState({
+            articles: articles,
+            totalResults: articles.length,
+            loading:false
         })
+
     }
 
     handlePreviousClick = async()=>
@@ -46,6 +54,7 @@ static propTypes = {
         // let data = await fetch(url);
         // this.setState({loading:true});
         // let parsedData = await data.json();
+        
         // console.log(parsedData);
         // this.setState({
         //     page : this.state.page-1 ,
@@ -62,20 +71,22 @@ static propTypes = {
 
     handleNextClick = async()=>
     {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=6d86baefd54d4a23b431f6e532211b4e&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
-        if(!(this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pageSize)))
-        {
-        let data = await fetch(url);
-        this.setState({loading:true});
-        let parsedData = await data.json();
-        console.log(parsedData);
+        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=6d86baefd54d4a23b431f6e532211b4e&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+        // if(!(this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pageSize)))
+        // {
+        // let data = await fetch(url);
+        // this.setState({loading:true});
+        // let parsedData = await data.json();
+        // console.log(parsedData);
+        // this.setState({
+        //     page : this.state.page+1 ,
+        //     articles :parsedData.articles,
+        //     loading :false
+        // })}
         this.setState({
             page : this.state.page+1 ,
             articles :parsedData.articles,
             loading :false
-        })}
-        this.setState({
-
         })
     }
 
